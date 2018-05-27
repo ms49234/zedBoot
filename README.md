@@ -16,7 +16,12 @@ Stvoriti 2 partiticije (radilo je s omjerom 325 MB : ostalo):
 
 Jedna FAT32, jedna ext4
 
-Na FAT32 partiticiju treba staviti potrebne datoteke za pokretanje i karticu ubaciti u ploču (radi s priloženom verzijom boot.bin-a, nova baca „No cores found”)
+Klonirati https://github.com/ucb-bar/fpga-zynq
+	
+	$ make fetch-images
+	$ make load-sd SD=/dev/mmcblk0p1
+	
+Umjesto dobivenog boot.bin-a treba koristiti priloženi.
 
 Konfiguracija UART veze:
  
