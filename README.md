@@ -33,7 +33,16 @@ U u-boot:
 
 	$ $sdboot=echo Copying Linux from SD to RAM... && mmcinfo && fatload mmc 0 0x3000000 ${kernel_image} && fatload mmc 0 0x2A00000 ${devicetree_image} && fatload mmc 0 0x2000000 ${ramdisk_image} && bootm 0x3000000 0x2000000 0x2A00000
 
-Podešavanje cross-compilera:
+Mount ROOT_FS partiticije:
+
+	$ mkdir sd
+	$ mount /dev/mmcblk0p2 sd
+	
+Pokretanje programa:
+
+	$ ./fesvr-zynq pk sd/main
+
+### Podešavanje cross-compilera:
 
 	$ git clone --recursive https://github.com/riscv/riscv-gnu-toolchain
 	$ ./configure --with-arch=rv64g --disable-multilib --prefix=apsolutni put do željenog direktorija u kojem će se postaviti
